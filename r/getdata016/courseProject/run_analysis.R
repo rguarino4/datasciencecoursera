@@ -95,6 +95,6 @@ run_analysis <- function() {
    
    message("File tidyAggregateDataSet.txt was generated with SUCCESS !")
    
-   return (tidyAggregateDataSet)
+   #return (tidyAggregateDataSet)
    
 }
