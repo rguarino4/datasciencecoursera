@@ -71,11 +71,18 @@ rankall <- function(outcome, num="best") {
    states <- unique(file$State)
    
    # Second, iterates over all states
-   df <- as.data.frame(c())
+   m <- matrix(nrow=length(states),ncol=2)  
+   i = 0
    for (st in states) {
+      i <- i + 1
       hosp <- rankhospital(st,outcome,num)
-      print(c(hosp, st))
+      m[i,1] <- hosp
+      m[i,2] <- st
    }
+   
+   df <- as.data.frame(m)
+   colnames(df) <- c("hospital","state")
+   df <- df[order(df$state),]
    
    return (df)
    
